@@ -1,18 +1,17 @@
 
-from InterfaceTools.interface import InterfaceInstancingError, interface
+from InterfaceTools.interface import InterfaceInstancingError, Interface
 
 
 class yolo:
     
     def yolo2(self):pass
 
-@interface
-class MyClass():
-   
+@Interface
+class MyClass():   
    
    def method_1(self): 
             pass
-@interface    
+@Interface    
 class Myinter():
     
     def method_3(self):pass

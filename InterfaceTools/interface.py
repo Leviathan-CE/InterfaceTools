@@ -7,7 +7,7 @@ class InterfaceInstancingError(Exception):
         super().__init__(*args)
 
 
-def interface(cls:type) -> type:   
+def Interface(cls:type) -> type:   
     '''
     ### Decorator class wrapper
     if @interface above any class will enforce partial interfaceing behavoiur to the class.

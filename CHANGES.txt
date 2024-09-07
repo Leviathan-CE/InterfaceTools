@@ -1,0 +1,5 @@
+# 1.0.0 RELEASE
+
+- @Interface decorator
+- partail inteface behavoiur
+- ABC package compatable

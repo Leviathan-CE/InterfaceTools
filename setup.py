@@ -11,7 +11,7 @@ setuptools.setup(
     description = "allows for @interface class partail behavoiur decorator",
     long_description = long_description,
     long_description_content_type = "text/markdown",
-    url = "package URL",
+    url = "https://github.com/Leviathan-CE/InterfaceTools",
     project_urls = {
         "Bug Tracker": "https://github.com/Leviathan-CE/InterfaceTools/issues",
         "repository": "https://github.com/Leviathan-CE/InterfaceTools"

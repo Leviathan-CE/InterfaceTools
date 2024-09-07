@@ -16,18 +16,29 @@ def interface(cls:type) -> type:
         
         def __new__(clss, *args, **kwargs):
             print(clss)
-            if issubclass(cls, metaInterface):
-                print("foobargggggg")
+            print(clss.__bases__)
+            #print(dir(clss))
+            if clss.__bases__.__contains__(metaInterface):
+                raise InterfaceInstancingError("Interfaces cannot be instances by them selves.")
+            
+            #print(clss.__dict__.items())
+            print(str(clss.__class__))
+            
+            class_child = clss.__class__
+            print(class_child.__qualname__)
+        
+           
+
             return object.__new__(clss,*args,**kwargs)
 
    
     
     jclass = type(cls.__name__, (cls,metaInterface), cls.__annotations__)
-    inst = jclass()
+   
     
  
 
-        #raise InterfaceInstancingError("Interfaces cannot be instances by them selves.")
+        
         
     
     #print(jclass)
@@ -38,21 +49,29 @@ def interface(cls:type) -> type:
 @interface
 class MyClass:
    
-    def method_1(): 
+    def method_1(self): 
             pass
+    
+class yolo:
 
-class My2Class(MyClass):
+    def yolo(self):pass
+
+class My2Class(MyClass, yolo):
     
     def __init__(self):
         pass
     
-    def method_2():
+    def method_2(self):
         pass
 
-foo = MyClass()  # Should raise an error
+try:
+    foo = MyClass()  # Should raise an error
+except:
+    print("interface instancing worked")
 fog = My2Class()  # Creating an instance should work fine
 
 #print(dir(fog))
+
 print(isinstance(fog, MyClass))  # Should return True
 print(isinstance(fog, My2Class))  # Should return True
 print(isinstance(MyClass, My2Class))  # Should return False

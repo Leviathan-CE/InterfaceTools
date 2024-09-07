@@ -1,5 +1,5 @@
 
-from InterfaceTools.interface import InterfaceInstancingError, Interface
+from tools.interface import InterfaceInstancingError, Interface
 
 
 class yolo:

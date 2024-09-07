@@ -13,8 +13,14 @@ def Interface(cls:type) -> type:
     if @interface above any class will enforce partial interfaceing behavoiur to the class.
     mainly, the class cannot be directly made into an object.
 
-    you can still have base classes on this object and are not require to implement the interfaces functions.
-    is compatible with ABC package for abstract methods and functions.
+    ```python
+    
+    @Interface
+    class Myclass():
+    ...
+    
+    ```
+    
     '''
 
     class metaInterface:

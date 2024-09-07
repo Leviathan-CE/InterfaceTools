@@ -1,6 +1,6 @@
-
-
-from typing import Any
+from abc import abstractmethod
+from abc import ABCMeta, ABC
+import types
 
 
 class InterfaceInstancingError(Exception):
@@ -10,51 +10,45 @@ class InterfaceInstancingError(Exception):
 
 
 def interface(cls:type) -> type:   
-    
+    '''
+    ### Decorator class wrapper
+    if @interface above any class will enforce partial interfaceing behavoiur to the class.
+    mainly, the class cannot be directly made into an object.
+
+    you can still have base classes on this object and are not require to implement the interfaces functions.
+    is compatible with ABC package for abstract methods and functions.
+    '''
 
     class metaInterface:
-        
-        def __new__(clss, *args, **kwargs):
-            print(clss)
-            print(clss.__bases__)
-            #print(dir(clss))
-            if clss.__bases__.__contains__(metaInterface):
+        __slots__ = ()
+        def __new__(cls, *args, **kwargs):
+
+            print(cls)
+            print(cls.__bases__)
+            if cls.__bases__.__contains__(metaInterface):
                 raise InterfaceInstancingError("Interfaces cannot be instances by them selves.")
-            
-            #print(clss.__dict__.items())
-            print(str(clss.__class__))
-            
-            class_child = clss.__class__
-            print(class_child.__qualname__)
-        
-           
-
-            return object.__new__(clss,*args,**kwargs)
-
+            return object.__new__(cls,*args,**kwargs)     
    
-    
-    jclass = type(cls.__name__, (cls,metaInterface), cls.__annotations__)
    
-    
- 
-
-        
-        
-    
-    #print(jclass)
-    
+    jclass = types.new_class(cls.__name__, (cls,metaInterface), cls.__annotations__) 
     return jclass
 
 
+
+##TESTING: will move to tests once complete
+
+class yolo(metaclass=ABCMeta):
+    
+    def yolo2(self):pass
+
 @interface
-class MyClass:
+class MyClass(metaclass=ABCMeta):
    
-    def method_1(self): 
+   @abstractmethod
+   def method_1(self): 
             pass
     
-class yolo:
 
-    def yolo(self):pass
 
 class My2Class(MyClass, yolo):
     
@@ -64,10 +58,17 @@ class My2Class(MyClass, yolo):
     def method_2(self):
         pass
 
+    def method_1(self):pass
+
 try:
     foo = MyClass()  # Should raise an error
-except:
-    print("interface instancing worked")
+except InterfaceInstancingError as e:
+    print(f"interface instancing worked {e}")
+
+# try:
+#     foo = yolo()  # Should raise an error
+# except InterfaceInstancingError as e:
+#     print(f" {e}")
 fog = My2Class()  # Creating an instance should work fine
 
 #print(dir(fog))

@@ -3,18 +3,18 @@ import types
 
 class InterfaceInstancingError(Exception):
     
-    def __init__(self, *args: object) -> None:
-        super().__init__(*args)
-
+    def __init__(self, message:str,*args) -> None:
+        self.message = f"The class {message} is an interface. Interfaces cannot be instantiated."
+        super().__init__(self.message,*args)
 
 def Interface(cls:type) -> type:   
     '''
     ### Decorator class wrapper
-    if @interface above any class will enforce partial interfaceing behavoiur to the class.
+    any class with this decorator will enforce partial interfaceing behavoiur to the class.
     mainly, the class cannot be directly made into an object.
 
-    ```python
-    
+    #### example:
+    ```python    
     @Interface
     class Myclass():
     ...
@@ -26,13 +26,16 @@ def Interface(cls:type) -> type:
     class metaInterface:
         
         def __new__(cls, *args, **kwargs):
-
-            print(cls)
-            print(cls.__bases__)
             if cls.__bases__.__contains__(metaInterface):
-                raise InterfaceInstancingError("Interfaces cannot be instances by them selves.")
+                raise InterfaceInstancingError(cls.__name__)
             return object.__new__(cls,*args,**kwargs)     
    
    
     jclass = types.new_class(cls.__name__, (cls,metaInterface), cls.__annotations__) 
     return jclass
+
+@Interface
+class fool():
+    pass
+
+foo = fool()

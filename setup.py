@@ -7,7 +7,7 @@ with open("README.md", "r", encoding = "utf-8") as fh:
 
 
 setuptools.setup(
-    name = "InterFaceTools",
+    name = "InterfaceTools",
     version = "1.0.6",
     author = "Leviathan-CE",
     author_email = "leviathanCE@outlook.com",

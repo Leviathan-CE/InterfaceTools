@@ -1,9 +1,9 @@
 # Interface Decorator
 
-allows the use of the @Interface class decorator, which allows for partai linterface behavoiur curretly only preventing direct instantaion. 
-future feeatures hope to include method detection and force children implementations, however can be acompished with ABC pacakge.
+allows the use of the @Interface class decorator, which allows for partial interface behavior currently only preventing direct instantiation. 
+future features hope to include method detection and force children implementations, however, this can be accomplished with the ABC package.
 
-this pacakge is desinged to be light waieghts and extremely simply to use. one @ to rule them all. in this case enforcing typical interface behavoiurs with good readability.
+this package is designed to be light weight and extremely simple to use. one @ to rule them all. in this case, enforcing typical interface behaviors with good readability.
 
 
 install
@@ -14,7 +14,7 @@ pip install InterfaceTools
 
 ## Instructions:
 
-above any clases you wish to become a interface and restrict instantaition to only children: 
+above any classes you wish to become an interface and restrict instantaition to only children: 
 
 ```Python
 from Leviathan.interface import Interface
@@ -25,18 +25,18 @@ class MyClass():
     def Method():pass
 ```
 
-that all thier is to it. this decorator then restrict this class ever to instanaite on its own meaning that the following:
+that is all there is to it. this decorator then restricts this class never to instantiate on its own; meaning the following:
 
 ```Python
 foo = MyClass()
 ```
-which givesthe follwing error:
+which gives the following error:
 
 ```
 InterfaceInstancingError: The class MyClass is an interface. Interfaces cannot be instantiated.
 ```
 
-addiaitonally unlike inerfaces in C# or java you are not required to implent thier methods. however if you desire that functionality you can use this with the ABC pacakge to enforce children overriding methods 
+Additionally, unlike interfaces in C# or Java, you are not required to implement their methods. however, if you desire that functionality you can use this with the ABC package to enforce children-overriding methods 
 
 example:
 
@@ -50,7 +50,7 @@ class myClass(metaclass=ABCMeta):
     def method():pass
 ```
 
-the example above will give you full C# or Java Like interface.
+the example above will give you a full C# or Java-like interface.
 
 
 other things you can do with this module are interface inheritance:
@@ -77,4 +77,4 @@ class class2(myClass):
     pass
 ```
 
-the interface wrapper is fully compatable with all the default python functions, and abc package for further control over your interface.
+the interface wrapper is fully compatible with all the default Python functions, and the ABC package for further control over your interface.

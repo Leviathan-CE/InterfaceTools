@@ -17,7 +17,7 @@ def Interface(cls:type) -> type:
     ```python    
     @Interface
     class Myclass():
-    ...
+            ...
     
     ```
     
@@ -34,8 +34,4 @@ def Interface(cls:type) -> type:
     jclass = types.new_class(cls.__name__, (cls,metaInterface), cls.__annotations__) 
     return jclass
 
-@Interface
-class fool():
-    pass
 
-foo = fool()

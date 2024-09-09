@@ -1,5 +1,5 @@
 
-from tools.interface import InterfaceInstancingError, Interface
+from Leviathan.interface import InterfaceInstancingError, Interface
 
 
 class yolo:

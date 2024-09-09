@@ -7,6 +7,9 @@
     "python.defaultInterpreterPath": "python",
     "python.autoComplete.extraPaths": [
         "IntefaceTools\\interface_tests"
+    ],
+    "python.analysis.extraPaths": [
+        "IntefaceTools\\interface_tests"
     ]
 
   }

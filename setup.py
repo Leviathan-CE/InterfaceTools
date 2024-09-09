@@ -4,9 +4,11 @@ import setuptools
 with open("README.md", "r", encoding = "utf-8") as fh:
     long_description = fh.read()
 
+
+
 setuptools.setup(
-    name = "InterfaceTools",
-    version = "1.0.2",
+    name = "InterFaceTools",
+    version = "1.0.4",
     author = "Leviathan-CE",
     author_email = "leviathanCE@outlook.com",
     description = "allows for @interface class partail behavoiur decorator",
@@ -22,7 +24,6 @@ setuptools.setup(
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
     ],
-    package_dir = {"": "tools"},
-    packages = setuptools.find_packages(where="tools"),
+    packages = ["Leviathan"],
     python_requires = ">=3.11"
 )

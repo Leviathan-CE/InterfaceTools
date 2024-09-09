@@ -31,7 +31,7 @@ def Interface(cls:type) -> type:
             return object.__new__(cls,*args,**kwargs)     
    
    
-    jclass = type(cls.__name__, (cls,metaInterface), cls.__annotations__) 
+    jclass = type(cls.__name__, (cls,metaInterface), cls.__annotations__)
     return jclass
 
 

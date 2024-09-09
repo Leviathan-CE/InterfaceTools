@@ -7,9 +7,14 @@ this package is designed to be light weight and extremely simple to use. one @ t
 
 
 install
-
+ windows
 ```cli
 pip install InterfaceTools
+```
+
+Mac
+```cli
+pip3 install InterfaceTools
 ```
 
 ## Instructions:

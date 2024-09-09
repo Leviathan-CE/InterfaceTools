@@ -8,7 +8,7 @@ with open("README.md", "r", encoding = "utf-8") as fh:
 
 setuptools.setup(
     name = "InterfaceTools",
-    version = "1.0.6",
+    version = "1.0.7",
     author = "Leviathan-CE",
     author_email = "leviathanCE@outlook.com",
     description = "allows for @interface class partail behavoiur decorator",

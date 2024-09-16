@@ -28,7 +28,7 @@ def Interface(cls:type) -> type:
         def __new__(cls, *args, **kwargs):
             if cls.__bases__.__contains__(metaInterface):
                 raise InterfaceInstancingError(cls.__name__)
-            return object.__new__(cls,*args,**kwargs)     
+            return object.__new__(cls)     
    
    
     jclass = types.new_class(cls.__name__, (cls,metaInterface), cls.__annotations__) 

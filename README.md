@@ -22,6 +22,9 @@ from Leviathan.interface import Interface
 @interface
 class MyClass():
 
+    def __init__(self, *args,**kwargs):
+       pass 
+
     def Method():pass
 ```
 
@@ -35,6 +38,11 @@ which givesthe follwing error:
 ```
 InterfaceInstancingError: The class MyClass is an interface. Interfaces cannot be instantiated.
 ```
+each interface requires the follwoing init function to allow for parameters, it can stay empty.
+```py
+   def __init__(self, *args,**kwargs):
+       pass 
+```
 
 addiaitonally unlike inerfaces in C# or java you are not required to implent thier methods. however if you desire that functionality you can use this with the ABC pacakge to enforce children overriding methods 
 
@@ -45,6 +53,9 @@ from abc import ABCMeta, abstractmethod
 
 @Interface 
 class myClass(metaclass=ABCMeta):
+    
+    def __init__(self, *args,**kwargs):
+       pass 
     
     @abstractmethod
     def method():pass

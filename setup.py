@@ -8,7 +8,7 @@ with open("README.md", "r", encoding = "utf-8") as fh:
 
 setuptools.setup(
     name = "InterFaceTools",
-    version = "1.0.6",
+    version = "1.0.8",
     author = "Leviathan-CE",
     author_email = "leviathanCE@outlook.com",
     description = "allows for @interface class partail behavoiur decorator",
@@ -25,5 +25,5 @@ setuptools.setup(
         "Operating System :: OS Independent",
     ],
     packages = ["Leviathan"],
-    python_requires = ">=3.11"
+    python_requires = ">=3.12"
 )
